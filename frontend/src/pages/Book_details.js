@@ -63,13 +63,12 @@ const [Data,setData] = useState([
             <div className = "info">
                 <h3>Details</h3>
                 <p>Name: {Data.name}</p>
-                <p>Edition: </p>
-                <p>Author:</p>
-                <p>Condition: </p>
-                <p>Semester: </p>
-                <p>Price</p>
-                <p>ISBN:</p>
-                <p>Description: </p>  
+                <p>Edition:{Data.edition} </p>
+                <p>Author:{Data.author}</p>
+                <p>Condition:{Data.condition}</p>
+                <p>Semester: {Data.semester}</p>
+                <p>Price:{Data.price}</p>
+                <p>ISBN:{Data.ISBN}</p>
             </div>  
             <button className="Tocart" onClick={submit}>Add To Cart</button>  
 			<br/><Link to="/display"><button> Go back to display all books</button></Link>	
