@@ -24,8 +24,11 @@ const Login = () => {
              .post("http://localhost:4000/api/login",Data)
              .then(function (response) {
             if (response.data.redirect == '/') {
+                alert("Login successful")
                 window.location = "/display"
+
             } else if (response.data.redirect == '/login'){
+                alert("Invalid password")
                 window.location = "/login"
             }
         })
