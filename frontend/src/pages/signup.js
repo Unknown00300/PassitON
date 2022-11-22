@@ -44,8 +44,10 @@ const Signup = () => {
              .post("http://localhost:4000/api/signup",Data)
              .then(function (response) {
             if (response.data.redirect == '/') {
+                alert("Signup successful")
                 window.location = "/display"
             } else if (response.data.redirect == '/signup'){
+                alert("Signup not successful")
                 window.location = "/signup"
             }
         })

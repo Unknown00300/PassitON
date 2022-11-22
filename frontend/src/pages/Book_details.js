@@ -43,13 +43,19 @@ const [Data,setData] = useState([
 		 .post("http://localhost:4000/api/addtocart",Data)
 		 .then(function (response) {
             if (response.data.redirect == '/') {
+                alert("Book has been added to cart")
                 window.location = "/display"
-            }
             
-        })
-        .catch(function(error) {
-           console.log(error)
-        })
+        } else if (response.data.redirect == '/display'){
+            alert("Book exists in cart")
+            window.location = "/display"
+        }
+    })
+    .catch(function(error) {
+        window.location = "/display"
+    })
+            
+
 	}
 	
 	/*
@@ -79,15 +85,7 @@ const [Data,setData] = useState([
             className="book-image"/>
             <div className = "info">
                 <h3>Details</h3>
-<<<<<<< HEAD
-                <p>Name: {Data.name}</p>
-                <p>Edition:{Data.edition} </p>
-                <p>Author:{Data.author}</p>
-                <p>Condition:{Data.condition}</p>
-                <p>Semester: {Data.semester}</p>
-                <p>Price:{Data.price}</p>
-                <p>ISBN:{Data.ISBN}</p>
-=======
+
                 <p>Name : {Data.name}</p>
                 <p>Edition : {Data.edition} </p>
                 <p>Author : {Data.author}</p>
@@ -96,7 +94,7 @@ const [Data,setData] = useState([
 				<p>Cost Price : {Data.costprice}</p>
                 <p>Selling Price : {Data.sellingprice}</p>
                 <p>ISBN : {Data.isbn}</p>
->>>>>>> da7da9bc86887e6a5c5c1ea469d57ae4ebe625db
+
             </div>  
             <button className="btn1" onClick={submit}>Add To Cart</button>  
 			<br/><Link to="/display"><button className="btn2"> Go back to display all books</button></Link>	
