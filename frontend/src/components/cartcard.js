@@ -35,11 +35,14 @@ const CartCard = ({item}) => {
 		 .delete(`http://localhost:4000/api/delete/${bid}`)
 		 .then(function (response) {
            if (response.data.redirect == '/') {
+				alert("Book has been deleted from cart")
                 window.location = "/cart"
             }
+            else if (response.data.redirect == '/cart'){
+				alert("Book could not be deleted from cart")
+				window.location = "/cart"
             
-            
-        })
+        }})
         .catch(function(error) {
            console.log(error)
         })
