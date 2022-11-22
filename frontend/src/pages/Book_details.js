@@ -5,10 +5,10 @@ import { useParams } from "react-router-dom";
 import {Link} from "react-router-dom";
 import "./Book_details.css";
 import axios from 'axios'
-
+import Navbar from "../components/Navbar";
 
 let bookImage = require('./book_demo.jpg')
-const BookDet = () =>{
+const BookDetail = () =>{
 	var bid=useParams().id
 	
 const [Data,setData] = useState([
@@ -52,6 +52,23 @@ const [Data,setData] = useState([
         })
 	}
 	
+	/*
+	const del = async(e)=>{
+		e.preventDefault();
+		 await axios
+		 .delete(`http://localhost:4000/api/delete/${bid}`,Data)
+		 .then(function (response) {
+           if (response.data.redirect == '/') {
+                window.location = "/display"
+            }
+            
+            
+        })
+        .catch(function(error) {
+           console.log(error)
+        })
+	}
+	*/
     return(
         <div>
 	
@@ -62,6 +79,7 @@ const [Data,setData] = useState([
             className="book-image"/>
             <div className = "info">
                 <h3>Details</h3>
+<<<<<<< HEAD
                 <p>Name: {Data.name}</p>
                 <p>Edition:{Data.edition} </p>
                 <p>Author:{Data.author}</p>
@@ -69,11 +87,31 @@ const [Data,setData] = useState([
                 <p>Semester: {Data.semester}</p>
                 <p>Price:{Data.price}</p>
                 <p>ISBN:{Data.ISBN}</p>
+=======
+                <p>Name : {Data.name}</p>
+                <p>Edition : {Data.edition} </p>
+                <p>Author : {Data.author}</p>
+                <p>Condition : {Data.condition}</p>
+                <p>Semester : {Data.semester}</p>
+				<p>Cost Price : {Data.costprice}</p>
+                <p>Selling Price : {Data.sellingprice}</p>
+                <p>ISBN : {Data.isbn}</p>
+>>>>>>> da7da9bc86887e6a5c5c1ea469d57ae4ebe625db
             </div>  
-            <button className="Tocart" onClick={submit}>Add To Cart</button>  
-			<br/><Link to="/display"><button> Go back to display all books</button></Link>	
+            <button className="btn1" onClick={submit}>Add To Cart</button>  
+			<br/><Link to="/display"><button className="btn2"> Go back to display all books</button></Link>	
 	
         </div>
     )};
+
+function BookDet()
+{
+	return(
+	<div>
+	<Navbar/>
+	<BookDetail/>
+	</div>
+	);
+}
 
 export default BookDet;
